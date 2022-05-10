@@ -5,7 +5,7 @@ using UnityEngine;
 public class FloorGenerator : MonoBehaviour
 {
     public const float floorLength = 1.0f;
-    public const int maxAdjacentFloors = 2;
+    public const int maxAdjacentFloors = 3;
 
     public Transform player;
 
@@ -16,6 +16,7 @@ public class FloorGenerator : MonoBehaviour
     {
         generatedFloors = new Dictionary<int, Floor>();
         generatedFloors.Add(0, new Floor(0));
+        GenerateFloor(0);
     }
 
     void Update()
