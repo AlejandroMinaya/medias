@@ -66,7 +66,7 @@ public class Floor
             _floorPos * FloorGenerator.floorLength, 0, 0
         );
         floor.transform.localScale = new Vector3(
-            FloorGenerator.floorLength, 1, 0.5f
+            FloorGenerator.floorLength, 1, 0.25f
         );
     }
 

@@ -8,22 +8,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.Animations;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
-    public float speed = 3.0f;
+    private const float MOVEMENT_THRESHOLD = 0.01f;
+    public float speed = 1.0f;
+    public float jumpForce = 1.0f;
 
     private Rigidbody rb;
+    private Animator anim;
     private Vector3 camRelativePos;
 
     private float outOfScreenTime = 0.0f;
     private float outOfScreenTolerance = 3.0f;
     private bool isGrounded = false;
+    private bool isLookingForward = true;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,18 +39,44 @@ public class Player : MonoBehaviour
         Move();
         AvoidGettingAhead();
         CheckOutOfScreen();
+        UpdateAnimParameters();
+    }
+
+    void UpdateAnimParameters()
+    {
+        anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+
+        if (rb.velocity.x >= MOVEMENT_THRESHOLD && !isLookingForward)
+        {
+            isLookingForward = true;
+            FlipHorizontally();
+        }
+
+        if (rb.velocity.x < -1 * MOVEMENT_THRESHOLD && isLookingForward)
+        {
+            isLookingForward = false;
+            FlipHorizontally();
+        }
+    }
+
+    void FlipHorizontally()
+    {
+        transform.Rotate(0.0f, 0.0f, 180.0f, Space.Self);
     }
 
     void Move()
     {
-        rb.AddForce(Input.GetAxis("Horizontal") * Vector3.right * speed);
+        rb.AddForce(Input.GetAxis("Horizontal")*Vector3.right*(1+speed/10));
         rb.MovePosition(new Vector3(
             transform.position.x,
             transform.position.y,
             Input.GetAxis("Vertical")
         ));
         if (isGrounded)
-            rb.AddForce(Input.GetAxis("Jump") * Vector3.up, ForceMode.Impulse);
+            rb.AddForce(
+                Input.GetAxis("Jump") * Vector3.up * jumpForce/10,
+                ForceMode.Impulse
+            );
     }
 
     void AvoidGettingAhead()

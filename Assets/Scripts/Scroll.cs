@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Scroll : MonoBehaviour
 {
-    public float scrollAcceleration = 5.0f;
+    public float scrollAcceleration = 1.0f;
 
     private const float ACCELERATION_SCALE = 1e4f;
     private float scrollSpeed = 0.05f;

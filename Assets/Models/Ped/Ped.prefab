@@ -210,7 +210,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 0e41a81238558dafca3f1362abb04771, type: 2}
 --- !u!1 &2566746007817357292
@@ -454,7 +454,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 2dac8a812b4c8355aa16ee7e05bf2b0f, type: 2}
 --- !u!1 &5636941850280313369
@@ -468,6 +468,7 @@ GameObject:
   - component: {fileID: 1957772072278820395}
   - component: {fileID: 3875481251094950536}
   - component: {fileID: 5891607651477590869}
+  - component: {fileID: 1657997770005155018}
   m_Layer: 0
   m_Name: Ped
   m_TagString: Player
@@ -483,7 +484,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5636941850280313369}
   m_LocalRotation: {x: -0.11538284, y: 0.8962131, z: 0.04199592, w: 0.4262924}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 0.0245, y: 0.0245, z: -0.0245}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -494,7 +495,7 @@ Transform:
   - {fileID: 575575319071614934}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -10, y: 130, z: -10}
 --- !u!54 &3875481251094950536
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -509,7 +510,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 3
 --- !u!114 &5891607651477590869
 MonoBehaviour:
@@ -523,4 +524,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f96beaacc07bfafafd3ce01f435e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 4.5
+--- !u!95 &1657997770005155018
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5636941850280313369}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cd61d3b726d73d37e8f86ab9a205d969, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

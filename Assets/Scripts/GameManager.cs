@@ -22,8 +22,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        score = TruncateFloat(player.transform.position.x);
-        scoreText.SetText($"{score}m");
+        if (player != null)
+        {
+            score = TruncateFloat(player.transform.position.x);
+            scoreText.SetText($"{score}m");
+        }
     }
 
 
