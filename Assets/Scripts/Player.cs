@@ -49,19 +49,13 @@ public class Player : MonoBehaviour
         if (rb.velocity.x >= MOVEMENT_THRESHOLD && !isLookingForward)
         {
             isLookingForward = true;
-            FlipHorizontally();
         }
 
         if (rb.velocity.x < -1 * MOVEMENT_THRESHOLD && isLookingForward)
         {
             isLookingForward = false;
-            FlipHorizontally();
         }
-    }
-
-    void FlipHorizontally()
-    {
-        transform.Rotate(0.0f, 0.0f, 180.0f, Space.Self);
+        anim.SetBool("Backwards", !isLookingForward);
     }
 
     void Move()
