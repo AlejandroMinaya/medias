@@ -15,7 +15,7 @@ using UnityEditor.Animations;
 public class Player : MonoBehaviour
 {
     private const float MOVEMENT_THRESHOLD = 0.01f;
-    public float speed = 1.0f;
+    public float speed = 10.0f;
     public float jumpForce = 1.0f;
 
     private Rigidbody rb;
@@ -26,6 +26,11 @@ public class Player : MonoBehaviour
     private float outOfScreenTolerance = 3.0f;
     private bool isGrounded = false;
     private bool isLookingForward = true;
+
+    // Movement controles
+    private float xForce = 0.0f;
+    private float yForce = 0.0f;
+    private float upForce = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,10 +41,15 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
         AvoidGettingAhead();
         CheckOutOfScreen();
         UpdateAnimParameters();
+        GetInput();
+    }
+
+    void FixedUpdate()
+    {
+        Move();
     }
 
     void UpdateAnimParameters()
@@ -58,19 +68,26 @@ public class Player : MonoBehaviour
         anim.SetBool("Backwards", !isLookingForward);
     }
 
+    void GetInput()
+    {
+        xForce = Input.GetAxis("Horizontal");
+        yForce = Input.GetAxis("Vertical");
+
+        if (isGrounded)
+            upForce = Input.GetAxis("Jump");
+        else
+            upForce = 0;
+    }
+
     void Move()
     {
-        rb.AddForce(Input.GetAxis("Horizontal")*Vector3.right*(1+speed/10));
+        rb.AddForce(xForce*Vector3.right*speed);
         rb.MovePosition(new Vector3(
             transform.position.x,
             transform.position.y,
-            Input.GetAxis("Vertical")
+            yForce
         ));
-        if (isGrounded)
-            rb.AddForce(
-                Input.GetAxis("Jump") * Vector3.up * jumpForce/10,
-                ForceMode.Impulse
-            );
+        rb.AddForce(upForce * Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
     void AvoidGettingAhead()
