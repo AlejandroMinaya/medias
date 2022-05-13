@@ -32,12 +32,9 @@ public class GameManager : MonoBehaviour
     {
         if (player != null)
         {
-            //score = TruncateFloat(player.transform.position.x);
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                score++;
-            }
+            score = TruncateFloat(player.transform.position.x);
             scoreText.SetText($"Score: {score}m");
+
             if (score > PlayerPrefs.GetFloat("HighScore", 0))
             {
                 PlayerPrefs.SetFloat("HighScore", score);
