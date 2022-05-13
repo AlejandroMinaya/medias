@@ -7,13 +7,13 @@ public class VacuumGenerator : MonoBehaviour
     private const int minSpawnDist = 2;
     private const float initialDistToPlayer = 5.0f;
     private const int maxSpawnDist = 5;
-    private const float minHeight = 0.1f;
+    private const float minHeight = 0.15f;
+
+    public GameObject vacuum;
 
     private Transform player;
     private int interval;
-
-    public GameObject vacuum;
-    public GameObject lastVacuum;
+    private GameObject lastVacuum;
 
     void Start()
     {
