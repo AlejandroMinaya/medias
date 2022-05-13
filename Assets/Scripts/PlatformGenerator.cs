@@ -5,7 +5,6 @@ public class PlatformGenerator : MonoBehaviour {
 
     public const int platformInterval = 2;
     public const int maxAdjacentPlatforms = 5;
-    public const float maxPlatformHeight = 2f;
     public const float noiseScale = 20f;
     public const float spawnProbability = 0.67f;
 
@@ -65,6 +64,8 @@ public class PlatformGenerator : MonoBehaviour {
 
 public class Platform
 {
+    private const float minHeight = 0.5f;
+    public const float maxHeight = 2f;
     private GameObject platform;
     private float coord;
     private float height;
@@ -74,9 +75,10 @@ public class Platform
         platform = GameObject.CreatePrimitive(PrimitiveType.Cube);
         platform.transform.position = new Vector3(
             x + PlatformGenerator.platformInterval,
-            height * PlatformGenerator.maxPlatformHeight, 0
+            minHeight + height * (maxHeight - minHeight),
+            0
         );
-        platform.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        platform.transform.localScale = new Vector3(0.5f, 0.05f, 0.5f);
     }
 
     public void Destroy()
