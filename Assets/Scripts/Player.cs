@@ -15,6 +15,7 @@ using UnityEditor.Animations;
 public class Player : MonoBehaviour
 {
     private const float MOVEMENT_THRESHOLD = 0.01f;
+    private const int MAX_HP = 3;
     public float speed = 10.0f;
     public float jumpForce = 1.0f;
 
@@ -31,11 +32,15 @@ public class Player : MonoBehaviour
     private float xForce = 0.0f;
     private float yForce = 0.0f;
     private float upForce = 0.0f;
+
+    // Health
+    private int hp;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        hp = MAX_HP;
     }
 
     // Update is called once per frame
@@ -66,6 +71,7 @@ public class Player : MonoBehaviour
             isLookingForward = false;
         }
         anim.SetBool("Backwards", !isLookingForward);
+        anim.SetInteger("Health", hp);
     }
 
     void GetInput()
@@ -110,6 +116,20 @@ public class Player : MonoBehaviour
 
         if (outOfScreenTime >= outOfScreenTolerance)
             Destroy(gameObject);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "Vacuum")
+        {
+            if (hp >= MAX_HP)
+                anim.SetTrigger("Lose First Eye");
+            if (hp >= MAX_HP/2)
+                anim.SetTrigger("Lose Second Eye");
+            if (hp <= 0)
+                anim.SetTrigger("Die");
+            hp--;
+        }
     }
 
     void OnCollisionStay()
