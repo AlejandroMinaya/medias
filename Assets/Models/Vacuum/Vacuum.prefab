@@ -583,6 +583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8372130640053011427}
   - component: {fileID: 1853191410725062278}
+  - component: {fileID: 7690676978666765395}
   m_Layer: 0
   m_Name: Vacuum
   m_TagString: Untagged
@@ -626,4 +627,17 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 48
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
+--- !u!114 &7690676978666765395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2958036333046474646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 653f2adf1fbbce3b1a4c7ac8af1d2e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
