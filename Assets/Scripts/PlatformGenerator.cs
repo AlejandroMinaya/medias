@@ -16,8 +16,10 @@ public class PlatformGenerator : MonoBehaviour {
 
     void Start()
     {
+        GameObject _player = GameObject.FindWithTag("Player");
+        if (_player == null) return;
         generatedPlatforms = new Dictionary<int, Platform>();
-        player = GameObject.FindWithTag("Player").transform;
+        player = _player.transform;
         seedX = Random.Range(0f, 1f);
     }
 
@@ -64,8 +66,8 @@ public class PlatformGenerator : MonoBehaviour {
 
 public class Platform
 {
-    private const float minHeight = 0.5f;
-    public const float maxHeight = 2f;
+    private const float minHeight = 0.75f;
+    public const float maxHeight = 1.5f;
     private GameObject platform;
     private float coord;
     private float height;
