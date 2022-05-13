@@ -1,0 +1,11 @@
+Model Information:
+* title:	Vacuum
+* source:	https://sketchfab.com/3d-models/vacuum-3377107e093944d094336fe9e6555ad8
+* author:	1-3D.com (https://sketchfab.com/1-3D.com)
+
+Model License:
+* license type:	CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)
+* requirements:	Author must be credited. Modified versions must have the same license. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Vacuum" (https://sketchfab.com/3d-models/vacuum-3377107e093944d094336fe9e6555ad8) by 1-3D.com (https://sketchfab.com/1-3D.com) licensed under CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)
