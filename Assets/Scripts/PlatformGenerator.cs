@@ -37,7 +37,7 @@ public class PlatformGenerator : MonoBehaviour {
     {
         if (playerX < 0) return;
         if (generatedPlatforms.ContainsKey(playerX)) return;
-        float coord = seedX + playerX * noiseScale;
+        float coord = playerX + seedX * noiseScale;
         float height = Mathf.PerlinNoise(coord, coord);
         if (height > spawnProbability) return;
 

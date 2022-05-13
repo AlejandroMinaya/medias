@@ -70,13 +70,15 @@ public class Player : MonoBehaviour
 
     void GetInput()
     {
+        upForce = 0;
         xForce = Input.GetAxis("Horizontal");
         yForce = Input.GetAxis("Vertical");
 
-        if (isGrounded)
-            upForce = Input.GetAxis("Jump");
-        else
-            upForce = 0;
+
+        // GUARDS
+        if (!isGrounded) return;
+        if (rb.velocity.y > 0) return;
+        upForce = Input.GetAxis("Jump");
     }
 
     void Move()
