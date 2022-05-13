@@ -10,9 +10,11 @@ public class GameManager : MonoBehaviour
 
     /* UI Components */
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI highScoreText;
 
     private GameObject player;
     private float score = 0.0f;
+    private string highScore;
 
     private void Awake()
     {
@@ -20,12 +22,28 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
     }
 
+    void Start()
+    {
+        highScore = PlayerPrefs.GetFloat("HighScore", 0).ToString();
+        highScoreText.SetText($"High score: {highScore}m");
+    }
+
     void Update()
     {
         if (player != null)
         {
-            score = TruncateFloat(player.transform.position.x);
-            scoreText.SetText($"{score}m");
+            //score = TruncateFloat(player.transform.position.x);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                score++;
+            }
+            scoreText.SetText($"Score: {score}m");
+            if (score > PlayerPrefs.GetFloat("HighScore", 0))
+            {
+                PlayerPrefs.SetFloat("HighScore", score);
+                highScore = score.ToString();
+                highScoreText.SetText($"High score: {highScore}m");
+            }
         }
     }
 
