@@ -47,6 +47,14 @@ public class AudioManager : MonoBehaviour {
         s.source.Pause();
     }
 
+    public void StopAll() {
+        foreach(Sound s in sounds) {
+            if (s.name != "Theme") {
+                s.source.Stop();
+            }
+        }
+    }
+
     void Update() {
     }
 }
