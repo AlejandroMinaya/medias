@@ -8,12 +8,14 @@ public class VacuumGenerator : MonoBehaviour
     private const float initialDistToPlayer = 5.0f;
     private const int maxSpawnDist = 5;
     private const float minHeight = 0.15f;
+    private int[] zValues = {-1, 0, 1};
 
     public GameObject vacuum;
 
     private Transform player;
     private int interval;
     private GameObject lastVacuum;
+    private int randIdx = 0;
 
     void Start()
     {
@@ -37,9 +39,11 @@ public class VacuumGenerator : MonoBehaviour
 
     void GenerateVacuum()
     {
+        randIdx = Random.Range(0,3);
         lastVacuum = Instantiate(
             vacuum, new Vector3(
-                player.position.x + initialDistToPlayer, minHeight, 0
+                player.position.x + initialDistToPlayer,
+                minHeight, zValues[randIdx]
             ), Quaternion.identity
         );
     }
