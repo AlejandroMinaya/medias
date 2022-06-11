@@ -50,11 +50,19 @@ public class Player : MonoBehaviour
         CheckOutOfScreen();
         UpdateAnimParameters();
         GetInput();
+        SoundFX();
     }
 
     void FixedUpdate()
     {
         Move();
+    }
+
+    void SoundFX()
+    {
+        if (xForce != 0) {
+            FindObjectOfType<AudioManager>().Play("Ped Walking");
+        }
     }
 
     void UpdateAnimParameters()

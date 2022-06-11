@@ -16,7 +16,7 @@ public class Flip : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        InvokeRepeating("Rotate", 0.0f, 1.5f);
+        InvokeRepeating("Rotate", 0.0f, 2f);
         prob *= DIFF_INCREASE * (int)GameManager.score/INTERVAL;
         lastChangeDist = GameManager.score;
     }
