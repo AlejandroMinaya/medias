@@ -68,8 +68,11 @@ public class PlatformGenerator : MonoBehaviour {
 
 public class Platform
 {
-    private const float minHeight = -0.705f;
-    public const float maxHeight = 0.6f;
+    private const float minHeight = -1f;
+    public const float maxHeight = 1.1f;
+    private int[] zValues = {-1, 0, 1};
+
+    private int randIdx;
     private GameObject platform;
     private float coord;
     private float height;
@@ -77,12 +80,13 @@ public class Platform
     public Platform(float x, float height)
     {
         GameObject shelf = Resources.Load("Models/Shelf/Shelf") as GameObject;
+        randIdx = Random.Range(0, 3);
         // platform = GameObject.CreatePrimitive(PrimitiveType.Cube);
         platform = GameObject.Instantiate(shelf);
         platform.transform.position = new Vector3(
             x + PlatformGenerator.platformInterval,
             minHeight + height * maxHeight,
-            -2.5f
+            -2.5f + zValues[randIdx]
         );
         // platform.transform.localScale = new Vector3(0.5f, 0.05f, 0.5f);
     }
