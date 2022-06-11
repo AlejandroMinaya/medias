@@ -7,7 +7,6 @@ public class PlatformGenerator : MonoBehaviour {
     public const int maxAdjacentPlatforms = 5;
     public const float noiseScale = 20f;
     public const float spawnProbability = 0.67f;
-    public static GameObject shelfPrefab; 
 
     private Transform player;
     private float seedX;
@@ -34,6 +33,8 @@ public class PlatformGenerator : MonoBehaviour {
             DestroyPlatform();
         }
     }
+
+
 
     void GeneratePlatform()
     {
@@ -67,20 +68,21 @@ public class PlatformGenerator : MonoBehaviour {
 
 public class Platform
 {
-    private const float minHeight = 0.75f;
-    public const float maxHeight = 1.5f;
+    private const float minHeight = -1.705f;
+    public const float maxHeight = 2f;
     private GameObject platform;
     private float coord;
     private float height;
 
     public Platform(float x, float height)
     {
+        GameObject shelf = Resources.Load("Models/Shelf/Shelf") as GameObject;
         // platform = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        platform = GameObject.Instantiate(PlatformGenerator.shelfPrefab);
+        platform = GameObject.Instantiate(shelf);
         platform.transform.position = new Vector3(
             x + PlatformGenerator.platformInterval,
-            minHeight + height * (maxHeight - minHeight),
-            0
+            minHeight + height * maxHeight,
+            -2.5f
         );
         // platform.transform.localScale = new Vector3(0.5f, 0.05f, 0.5f);
     }
