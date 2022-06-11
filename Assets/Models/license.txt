@@ -1,0 +1,11 @@
+Model Information:
+* title:	Basic Wooden Shelf/Plank
+* source:	https://sketchfab.com/3d-models/basic-wooden-shelfplank-eceeb1faa14f4fe0be7f51efcf61f437
+* author:	m31odyr (https://sketchfab.com/m31odyr)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Basic Wooden Shelf/Plank" (https://sketchfab.com/3d-models/basic-wooden-shelfplank-eceeb1faa14f4fe0be7f51efcf61f437) by m31odyr (https://sketchfab.com/m31odyr) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

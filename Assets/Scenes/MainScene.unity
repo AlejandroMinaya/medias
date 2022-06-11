@@ -574,7 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45375c5bcf00c866cae7801948346a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollAcceleration: 1
+  scrollAcceleration: 2
 --- !u!45 &963194230
 Skybox:
   m_ObjectHideFlags: 0
