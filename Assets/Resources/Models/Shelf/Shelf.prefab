@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8922818534118916245}
   - component: {fileID: 8518969995461356386}
   - component: {fileID: 683951813286081656}
+  - component: {fileID: 7240812365854226149}
+  - component: {fileID: 1445098380447617822}
   m_Layer: 0
   m_Name: pCube55_lambert1_0
   m_TagString: Untagged
@@ -98,6 +100,39 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 4841f58faee69796c8e7d82f95c1333f, type: 2}
+--- !u!95 &7240812365854226149
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2744771039052027686}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 109cc00f769463bf5b8b42172a3451c4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1445098380447617822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2744771039052027686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4de00026a9fd16bb8358c4a324f936b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prob: 0.05
 --- !u!1 &7746256286968888253
 GameObject:
   m_ObjectHideFlags: 0

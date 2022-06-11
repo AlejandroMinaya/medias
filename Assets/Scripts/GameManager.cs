@@ -7,18 +7,19 @@ public class GameManager : MonoBehaviour
 {
     public const float DECIMAL_PLACES = 1e2f;
     public static GameManager Instance { get; private set; }
+    public static float score { get; private set; }
 
     /* UI Components */
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
 
     private GameObject player;
-    private float score = 0.0f;
     private string highScore;
 
     private void Awake()
     {
         Instance = this;
+        score = 0.0f;
         player = GameObject.FindWithTag("Player");
     }
 
