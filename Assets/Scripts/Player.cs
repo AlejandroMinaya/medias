@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     private float upForce = 0.0f;
 
     // Health
-    private int hp;
+    public int hp {private set; get; }
     // Start is called before the first frame update
     void Start()
     {

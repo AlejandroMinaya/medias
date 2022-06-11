@@ -68,8 +68,8 @@ public class PlatformGenerator : MonoBehaviour {
 
 public class Platform
 {
-    private const float minHeight = -1.705f;
-    public const float maxHeight = 2f;
+    private const float minHeight = -0.705f;
+    public const float maxHeight = 1f;
     private GameObject platform;
     private float coord;
     private float height;
